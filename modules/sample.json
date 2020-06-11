@@ -1,19 +1,31 @@
 {
-    "skill": "java",
-    "subtask": [
-        {
-            "number": 1,
-            "task": "loop",
-            "start": "09-06-2020",
-            "end": "11-06-2020",
+    "user": "s@gmail.com",
+    "goal": "Data scientist",
+    "goal_desc": "Data scientists utilize their analytical, statistical, and programming skills to collect, analyze, and interpret large data sets.",
+    "tasks": [
+      {
+        "skillName": "java",
+        "details": [
+          {
+            "number": "1",
+            "task_desc": "loops",
+            "start_date": "09-06-2020",
+            "end_date": "11-06-2020",
             "status": "not yet"
-        },
-        {
-            "number": 2,
-            "task": "strings",
-            "start": "11-06-2020",
-            "end": "14-06-2020",
+          }
+        ]
+      },
+      {
+        "skillName": "python",
+        "details": [
+          {
+            "number": "2",
+            "task_desc": "strings",
+            "start_date": "09-06-2020",
+            "end_date": "11-06-2020",
             "status": "not yet"
-        }
+          }
+        ]
+      }
     ]
-}
+  }
