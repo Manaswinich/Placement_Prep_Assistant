@@ -4,6 +4,10 @@ const Task = require('../modules/Schema');
 
 // get a list of tasks from the db
 // Returns the task object
+router.get("/", function (req, res) {
+    res.send({ "error": "not assigned to any func" })
+})
+
 router.get("/tasks/:id", function (req, res, next) {
     Task.findOne({ _id: req.params.id }).then(function (task) {
         res.send(task);
