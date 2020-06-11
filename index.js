@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connect to mongodb
-mongoose.connect('mongodb://localhost/tasks');
+mongoose.connect('mongodb+srv://Manaswini:manu123@cluster0-qabxb.mongodb.net/strategy_db?retryWrites=true&w=majority');
 mongoose.Promise = global.Promise;
 
 // use body-parser middleware
