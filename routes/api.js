@@ -5,15 +5,22 @@ const Task = require('../modules/Schema');
 // get a list of tasks from the db
 // Returns the task object
 router.get("/tasks/:id", function (req, res, next) {
-    console.log("GET");
-    Task.findById(req.params.id).then(function (task) {
+    Task.findOne({ _id: req.params.id }).then(function (task) {
         res.send(task);
-    });
+    })
+        .catch(function (next) {
+            Task.find({ user: req.params.id }).then(function (task) {
+                res.send(task);
+            })
+                .catch(function (next) {
+                    res.send("please try again");
+                })
+        })
+
 });
 
 // add a new task to the db
 router.post("/tasks", function (req, res, next) {
-    console.log(req.body);
     // Creates a promise and waits till this execution
     // is completed before it fires subsequent code
     Task.create(req.body)
@@ -33,6 +40,5 @@ router.delete("/tasks/:id", function (req, res, next) {
         res.send(task);
     });
 });
-
 
 module.exports = router;
