@@ -38,6 +38,15 @@ router.post("/tasks", function (req, res, next) {
         .catch(next);
 });
 
+//update the user details on db
+router.put("/tasks/:id", function (req, res, next) {
+    Task.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function () {
+        Task.findOne({ _id: req.params.id }).then(function (task) {
+            res.send(task);
+        });
+    }).catch(next);
+});
+
 // delete a task from the db
 router.delete("/tasks/:id", function (req, res, next) {
     Task.findByIdAndRemove({ _id: req.params.id }).then(function (task) {
