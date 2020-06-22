@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const serverless = require('serverless-http');
 
 // set up express app
 const app = express();
@@ -24,3 +25,4 @@ app.use(function (err, req, res, next) {
 app.listen(process.env.PORT || 3000, function () {
     console.log('now listening for requests');
 });
+module.exports.handler = serverless(app);
