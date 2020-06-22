@@ -1,0 +1,31 @@
+service: Placement-Assistance-Strategy
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-south-1
+  memorySize: 128
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http:
+          path: /api/
+          method: GET
+          cors: true
+      - http:
+          path: /api/tasks/{id}
+          method: GET
+          cors: true
+      - http:
+          path: /api/tasks
+          method: POST
+          cors: true
+      - http:
+          path: /api/tasks/{id}
+          method: PUT
+          cors: true
+      - http:
+          path: /api/tasks/{id}
+          method: DELETE
+          cors: true
